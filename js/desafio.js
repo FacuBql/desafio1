@@ -1,36 +1,34 @@
 let year = 2022;
-let month = 2;
-let day = 28;
+let month = 3;
+let day = 06;
 
-const laborOld = (dayEntry, monthEntry, yearEntry) => {
-  if (moreThanFiveYears(dayEntry, monthEntry, yearEntry)) {
+const appointment = (dayEntry, monthEntry, yearEntry) => {
+  if (timeUntilSchedule(dayEntry, monthEntry, yearEntry)) {
     return (
-      "You have" +
+      "Faltan" +
       " " +
-      (year - yearEntry) +
+      (day - dayEntry) +
       " " +
-      "years of labor contribution to the company."
+      "dias y" +
+      " " +
+      (month - monthEntry) +
+      " " +
+      "meses para el turno asignado."
     );
-  } else if (fiveYears(dayEntry, monthEntry, yearEntry)) {
-    return (
-      "Congratulations, you have accomplished" +
-      " " +
-      (year - yearEntry) +
-      " " +
-      "years of labor contribution to the company."
-    );
+  } else if (scheduleToday(dayEntry, monthEntry, yearEntry)) {
+    return "Tiene un turno asignado para el dia de hoy.";
   } else {
     return (
-      "You have" +
+      "Su ultimo turno fue asignado hace" +
       " " +
-      (year - yearEntry - 1) +
+      (day + dayEntry + 20) +
       " " +
-      "years of labor contribution."
+      "dias."
     );
   }
 };
 
-const fiveYears = (dayEntry, monthEntry) => {
+const scheduleToday = (dayEntry, monthEntry) => {
   if (dayEntry == day && monthEntry == month) {
     return true;
   } else {
@@ -38,7 +36,7 @@ const fiveYears = (dayEntry, monthEntry) => {
   }
 };
 
-const moreThanFiveYears = (dayEntry, monthEntry) => {
+const timeUntilSchedule = (dayEntry, monthEntry) => {
   if (monthEntry < month || (monthEntry == month && dayEntry < day)) {
     return true;
   } else {
@@ -46,4 +44,4 @@ const moreThanFiveYears = (dayEntry, monthEntry) => {
   }
 };
 
-console.log(laborOld(09, 10, 2014));
+console.log(appointment(01, 04, 2022));
