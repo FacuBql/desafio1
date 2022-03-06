@@ -16,16 +16,16 @@ const appointment = (dayEntry, monthEntry, yearEntry) => {
   }
 };
 
-const scheduleToday = (dayEntry, monthEntry) => {
-  if (dayEntry == day && monthEntry == month) {
+const scheduleToday = (dayEntry, monthEntry, yearEntry) => {
+  if (dayEntry == day && monthEntry == month && yearEntry == year) {
     return true;
   } else {
     return false;
   }
 };
 
-const timeUntilSchedule = (dayEntry, monthEntry) => {
-  if (monthEntry < month || (monthEntry == month && dayEntry < day)) {
+const timeUntilSchedule = (dayEntry, monthEntry, yearEntry) => {
+  if (dayEntry < day || (monthEntry < month && yearEntry < year)) {
     return true;
   } else {
     return false;
