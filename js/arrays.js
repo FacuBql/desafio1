@@ -1,10 +1,11 @@
-const specialist = [
-  "Dr. Marcelo Perez",
-  "Neurologia",
-  "14.30 hs",
-  "Domingo 6/03/2022",
+const specialists = [
+  "Dr. Marcelo Dominguez",
+  "Dra. Carla Lopez",
+  "Dr. Diego Rodriguez",
 ];
 
-for (let i = 0; i < specialist.length; i++) {
-  console.log(specialist[i]);
-};
+specialists.push("Dra. Julieta Fernandez");
+
+for (let i = 0; i < specialists.length; i++) {
+  console.log(specialists[i]);
+}

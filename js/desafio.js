@@ -1,35 +1,43 @@
+let day = 29;
+let month = 10;
 let year = 2022;
-let month = 3;
-let day = 06;
 
-const appointment = (dayEntry, monthEntry, yearEntry) => {
-  if (timeUntilSchedule(dayEntry, monthEntry, yearEntry)) {
+const schedule = (dayEntry, monthEntry, year) => {
+  if (scheduleToday(dayEntry, monthEntry, year)) {
+    return "Usted tiene un turno asignado el dia de hoy.";
+  } else if (prevSchedule(dayEntry, monthEntry, year)) {
     return (
       "Faltan" +
       " " +
-      (day - dayEntry + month - monthEntry + year - yearEntry) +
+      (day - dayEntry) +
       " " +
-      "dias para el turno asignado."
+      "dias y" +
+      " " +
+      (month - monthEntry) +
+      " " +
+      "meses para el turno asignado."
     );
-  } else if (scheduleToday(dayEntry, monthEntry, yearEntry)) {
-    return "Tiene un turno asignado para el dia de hoy.";
+  } else {
+    return "No tiene turnos programados. ¿Desea solicitar uno?";
   }
 };
 
-const scheduleToday = (dayEntry, monthEntry, yearEntry) => {
-  if (dayEntry == day && monthEntry == month && yearEntry == year) {
+const scheduleToday = (dayEntry, monthEntry) => {
+  if (dayEntry == day && monthEntry == month) {
     return true;
   } else {
     return false;
   }
 };
 
-const timeUntilSchedule = (dayEntry, monthEntry, yearEntry) => {
-  if (dayEntry < day || (monthEntry < month && yearEntry < year)) {
+const prevSchedule = (dayEntry, monthEntry) => {
+  if (dayEntry < day && monthEntry < month) {
     return true;
   } else {
     return false;
   }
 };
 
-console.log(appointment(01, 03, 2022));
+console.log(schedule(14, 06, 2022));
+console.log(schedule(29, 10, 2022));
+console.log(schedule(15, 12, 2023));
