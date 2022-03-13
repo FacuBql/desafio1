@@ -1,43 +1,32 @@
-let day = 29;
-let month = 10;
-let year = 2022;
+let umbrellaRed = 1250;
+let umbrellaBlue = 1875;
+let umbrellaGold = 2250;
+let tariff = 2500;
+const discountRed = (newPriceRed) => tariff - umbrellaRed;
+const discountBlue = (newPriceBlue) => tariff - umbrellaBlue;
+const discountGold = (newPriceGold) => tariff - umbrellaGold;
 
-const schedule = (dayEntry, monthEntry, year) => {
-  if (scheduleToday(dayEntry, monthEntry, year)) {
-    return "Usted tiene un turno asignado el dia de hoy.";
-  } else if (prevSchedule(dayEntry, monthEntry, year)) {
-    return (
-      "Faltan" +
-      " " +
-      (day - dayEntry) +
-      " " +
-      "dias y" +
-      " " +
-      (month - monthEntry) +
-      " " +
-      "meses para el turno asignado."
-    );
-  } else {
-    return "No tiene turnos programados. ¿Desea solicitar uno?";
-  }
-};
+let newPriceRed = discountRed(tariff - umbrellaRed);
+let newPriceBlue = discountBlue(tariff - umbrellaBlue);
+let newPriceGold = discountGold(tariff - umbrellaGold);
 
-const scheduleToday = (dayEntry, monthEntry) => {
-  if (dayEntry == day && monthEntry == month) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-const prevSchedule = (dayEntry, monthEntry) => {
-  if (dayEntry < day && monthEntry < month) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-console.log(schedule(14, 06, 2022));
-console.log(schedule(29, 10, 2022));
-console.log(schedule(15, 12, 2023));
+console.log(
+  "El valor de la consulta es de $" +
+    tariff +
+    ", a continuación, se presentarán los diferentes aranceles segun los planes disponibles."
+);
+console.log(
+  "El precio final de su consulta, con el descuento aplicado segun el plan Umbrella Red es de $" +
+    newPriceRed +
+    "."
+);
+console.log(
+  "El precio final de su consulta, con el descuento aplicado segun el plan Umbrella Blue es de $" +
+    newPriceBlue +
+    "."
+);
+console.log(
+  "El precio final de su consulta, con el descuento aplicado segun el plan Umbrella Gold es de $" +
+    newPriceGold +
+    "."
+);
