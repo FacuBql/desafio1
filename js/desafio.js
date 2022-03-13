@@ -16,17 +16,17 @@ console.log(
     ", a continuación, se presentarán los diferentes aranceles segun los planes disponibles."
 );
 console.log(
-  "El precio final de su consulta, con el descuento aplicado segun el plan Umbrella Red es de $" +
+  "El precio final de su consulta, con el descuento del 50% aplicado sobre el valor de consulta, segun el plan Umbrella Red es de $" +
     newPriceRed +
     "."
 );
 console.log(
-  "El precio final de su consulta, con el descuento aplicado segun el plan Umbrella Blue es de $" +
+  "El precio final de su consulta, con el descuento del 75% aplicado sobre el valor de la consulta, segun el plan Umbrella Blue es de $" +
     newPriceBlue +
     "."
 );
 console.log(
-  "El precio final de su consulta, con el descuento aplicado segun el plan Umbrella Gold es de $" +
+  "El precio final de su consulta, con el descuento del 90% aplicado sobre el valor de la consulta, segun el plan Umbrella Gold es de $" +
     newPriceGold +
     "."
 );
